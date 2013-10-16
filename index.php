@@ -4,6 +4,8 @@ require_once('helpers.php');
 $results = array();
 if (isset($_POST['transloadit'])) {
   $results = prepareTransloaditResults($_POST['transloadit']);
+  unset($_POST['transloadit']);
+  pr($_POST);
   pr($results);
 }
 ?>

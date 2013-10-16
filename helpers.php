@@ -10,21 +10,13 @@ function calcSignature($authSecret, $params) {
 }
 
 function prepareTransloaditResults($transloaditData) {
-  $results = array();
-
   if (ini_get('magic_quotes_gpc') === '1') {
     $transloaditData = stripslashes($transloaditData);
   }
   $transloaditData = json_decode($transloaditData, true);
-
-  foreach ($transloaditData['results'] as $step => $stepResults) {
-    $results[$step] = array();
-    foreach ($stepResults as $result) {
-      $results[$step][] = $result['url'];
-    }
-  }
-  return $results;
+  return $transloaditData;
 }
+
 
 function pr($a) {
   echo '<pre>';
